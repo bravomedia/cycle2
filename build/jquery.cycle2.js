@@ -1,5 +1,5 @@
 /*!
-* jQuery Cycle2; version: 2.1.5 build: 20140415
+* jQuery Cycle2; version: 2.1.5 build: 20140922
 * http://jquery.malsup.com/cycle2/
 * Copyright (c) 2014 M. Alsup; Dual licensed: MIT/GPL
 */
@@ -683,7 +683,10 @@ $.fn.cycle.defaults = {
 
 // automatically find and run slideshows
 $(document).ready(function() {
-    $( $.fn.cycle.defaults.autoSelector ).cycle();
+    // automatically find and run slideshows when images are loaded
+    $( $.fn.cycle.defaults.autoSelector ).imagesLoaded(function() {
+        $( $.fn.cycle.defaults.autoSelector ).cycle();
+    });
 });
 
 })(jQuery);
